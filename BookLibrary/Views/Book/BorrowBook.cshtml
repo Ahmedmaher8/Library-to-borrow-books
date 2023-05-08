@@ -1,0 +1,43 @@
+﻿@model BookLibrary.Models.BorrowBooks
+
+@{
+    ViewData["Title"] = "BorrowBook";
+}
+
+<h1>BorrowBook</h1>
+
+<h4>BorrowBooks</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <h2 class="text-danger">@ViewBag.msg</h2>
+        <h2 class="text-success">@ViewBag.msgSuccess</h2>
+        <form asp-action="BorrowBook">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BookID" class="control-label"></label>
+                <select asp-for="BookID" class ="form-control" asp-items="ViewBag.Books"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="BorrowID" class="control-label"></label>
+                 <select asp-for="BorrowID" class ="form-control" asp-items="ViewBag.Borrowers"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="actionType" class="control-label"></label>
+                 <select asp-for="actionType" class ="form-control">
+                     <option value="0">Borrow</option>
+                     <option value="1">Return</option>
+                 </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<BookLibrary.Models.Borrower>
+
+@{
+    ViewData["Title"] = "Borrowers";
+}
+
+<h1>Borrowers</h1>
+
+<p>
+    <a asp-action="Borrower">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Coede)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Coede)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+
+        </tr>
+}
+    </tbody>
+</table>
